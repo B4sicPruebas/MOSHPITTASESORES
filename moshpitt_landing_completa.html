@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moshpitt Asesores | Planes de Ahorro, Seguros e Inversiones Premium</title>
+<meta name="description" content="El asesor financiero que te acompaña del seguro a la jubilación. Optimización de pensión IMSS, portafolios bursátiles, fondos de ahorro y protección patrimonial.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-obsidian: #080B11;
+    --bg-navy: #001B4D;
+    --bg-card: rgba(17, 24, 39, 0.75);
+    --bg-card-hover: rgba(10, 28, 70, 0.85);
+    --blue: #0D70F2;
+    --blue-light: #267CFF;
+    --blue-glow: rgba(13, 112, 242, 0.18);
+    --blue-pale: #E2EEFF;
+    --blue-navy: #001B4D;
+    --text-primary: #F3F4F6;
+    --text-secondary: #9CA3AF;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(13, 112, 242, 0.40);
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { 
+    background-color: var(--bg-obsidian); 
+    color: var(--text-primary); 
+    font-family: var(--font-body); 
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── SKIP LINK ── */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--blue);
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 200;
+    transition: top 0.2s;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* ── BACKGROUND ORBS ── */
+  .orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 1s ease;
+  }
+  .orb-light-blue {
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(13, 112, 242, 0.12) 0%, transparent 70%);
+  }
+  .orb-blue {
+    bottom: 20%;
+    left: -200px;
+    background: radial-gradient(circle, rgba(0, 27, 77, 0.30) 0%, transparent 70%);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2.5rem;
+    background: rgba(0, 27, 77, 0.90);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(13, 112, 242, 0.20);
+  }
+  .nav-left { display: flex; align-items: center; gap: 2rem; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue) 0%, #0050C0 100%); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); color: #fff; font-size: 15px; font-weight: 800;
+  }
+  .nav-logo-text { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-primary); }
+  
+  /* Segment Selector (Actinver-inspired) */
+  .segment-selector {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px;
+  }
+  .segment-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 17px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .segment-btn.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .nav-links { display: flex; gap: 2.2rem; align-items: center; }
+  .nav-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; font-weight: 500; }
+  .nav-links a:hover { color: var(--blue-pale); }
+  
+  .nav-cta {
+    background: var(--blue); color: #fff; padding: 10px 22px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.02em;
+    transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s;
+    cursor: pointer; border: none;
+  }
+  .nav-cta:hover { 
+    background: var(--blue-light); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--blue-glow);
+  }
+  .nav-cta:active { transform: scale(0.97); }
+
+  /* ── HERO ── */
+  .hero-container { position: relative; z-index: 10; }
+  .hero {
+    min-height: 100vh; padding-top: 100px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 4rem;
+    padding-left: 2.5rem; padding-right: 2.5rem; max-width: 1240px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-pale);
+    text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+  .hero-headline {
+    font-family: var(--font-display); font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-weight: 800; line-height: 1.1; color: var(--text-primary); margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  /* Gradient text is banned per impeccable rules — use solid blue accent */
+  .hero-headline em { font-style: normal; color: var(--blue-pale); font-weight: 800; }
+  .hero-sub {
+    font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2.5rem; max-width: 520px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 3rem; }
+  
+  .btn-primary {
+    background: var(--blue); color: #fff; padding: 14px 30px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none;
+    transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer; border: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { 
+    background: var(--blue-light); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px var(--blue-glow);
+  }
+  /* Kowalski: :active gives immediate press feedback */
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-ghost {
+    background: rgba(13, 112, 242, 0.04); color: var(--blue-pale); padding: 13px 29px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none;
+    border: 1.5px solid rgba(13, 112, 242, 0.40);
+    transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { 
+    border-color: var(--blue); 
+    background: rgba(13, 112, 242, 0.10);
+    color: #fff;
+  }
+  .btn-ghost:active { transform: scale(0.97); }
+  .hero-stats { display: flex; gap: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+  .stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--text-primary); line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.06em; margin-top: 4px; text-transform: uppercase; }
+
+  /* ── INTERACTIVE SIMULATOR (Signature Element) ── */
+  .hero-visual { position: relative; z-index: 10; }
+  .simulator-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    /* Fixed: impeccable ghost-card ban - removed double decoration. Shadow only, no border+shadow combo */
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+  .simulator-container:hover {
+    border-color: var(--border-active);
+  }
+  .sim-header {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+  }
+  .sim-header-badge {
+    font-size: 10px;
+    background: rgba(13, 112, 242, 0.15);
+    color: var(--blue-pale);
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .sim-input-group {
+    margin-bottom: 1.5rem;
+  }
+  .sim-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .sim-range-val {
+    font-family: var(--font-display);
+    color: var(--blue-pale);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .sim-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(13, 112, 242, 0.18);
+    outline: none;
+    cursor: pointer;
+  }
+  .sim-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 10px var(--blue-glow);
+    transition: transform 0.1s;
+  }
+  .sim-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .sim-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 1.75rem;
+  }
+  .sim-term-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sim-term-btn.active {
+    background: var(--blue);
+    color: #fff;
+  }
+  .sim-results {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sim-res-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .sim-res-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+  .sim-res-num.text-blue-pale {
+    color: var(--blue-pale);
+  }
+  .sim-res-item.total {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .sim-res-num.text-blue-bold {
+    color: var(--blue-pale);
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+  .sim-note {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .sim-note span {
+    color: var(--blue-pale);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain-section {
+    position: relative;
+    background: #0C0F16; 
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 7rem 2.5rem; text-align: center;
+    z-index: 10;
+  }
+  .pain-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-pale); text-transform: uppercase; margin-bottom: 1rem; }
+  .pain-headline { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.01em; text-wrap: balance; }
+  .pain-sub { color: var(--text-secondary); font-size: 15px; max-width: 560px; margin: 0 auto 4.5rem; line-height: 1.7; }
+  
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+  .pain-item { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border); 
+    border-radius: 12px;  /* impeccable: cap cards at 12-16px */
+    padding: 2.25rem 1.75rem; 
+    text-align: left; 
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .pain-item.in { opacity: 1; transform: translateY(0); }
+  .pain-item:nth-child(1) { transition-delay: 0ms; }
+  .pain-item:nth-child(2) { transition-delay: 60ms; }
+  .pain-item:nth-child(3) { transition-delay: 120ms; }
+  .pain-item:nth-child(4) { transition-delay: 180ms; }
+  .pain-item:hover { 
+    border-color: var(--border-active); 
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+  }
+  /* SVG icon wrapper replacing emoji */
+  .pain-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; background: rgba(13, 112, 242, 0.08); border-radius: 10px; border: 1px solid rgba(13, 112, 242, 0.18); color: var(--blue-pale); }
+  .pain-item-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+  .pain-item-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── DIFFERENTIATORS ── */
+  .diff-section { padding: 8rem 2.5rem; max-width: 1240px; margin: 0 auto; position: relative; z-index: 10; }
+  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-pale); text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+  .section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--blue); }
+  .section-headline { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 4rem; max-width: 600px; letter-spacing: -0.01em; text-wrap: balance; }
+  
+  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .diff-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;  /* impeccable: cap at 12-16px */
+    padding: 2.25rem;
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .diff-card.in { opacity: 1; transform: translateY(0); }
+  .diff-card:nth-child(1) { transition-delay: 0ms; }
+  .diff-card:nth-child(2) { transition-delay: 60ms; }
+  .diff-card:nth-child(3) { transition-delay: 120ms; }
+  .diff-card:nth-child(4) { transition-delay: 40ms; }
+  .diff-card:nth-child(5) { transition-delay: 100ms; }
+  .diff-card:nth-child(6) { transition-delay: 160ms; }
+  .diff-card:hover { 
+    border-color: var(--border-active);
+    transform: translateY(-3px); 
+    background: var(--bg-card-hover);
+  }
+  /* impeccable: numbered markers (01/02/03) as default scaffold → BANNED. Use a solid blue dot accent instead */
+  .diff-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); opacity: 0.70; margin-bottom: 1.5rem; }
+  .diff-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+  .diff-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── PRODUCTS ── */
+  .products-section { background: #0C0F16; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 8rem 2.5rem; position: relative; z-index: 10; }
+  .products-inner { max-width: 1240px; margin: 0 auto; }
+  .products-header { text-align: center; margin-bottom: 4rem; }
+  .products-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--blue-pale); text-transform: uppercase; margin-bottom: 0.75rem; }
+  .products-headline { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--text-primary); letter-spacing: -0.01em; }
+  .products-sub { color: var(--text-secondary); font-size: 14px; margin-top: 0.75rem; }
+  
+  .tabs { display: flex; gap: 6px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 30px; padding: 5px; margin-bottom: 3.5rem; width: fit-content; margin-left: auto; margin-right: auto; }
+  .tab {
+    padding: 10px 24px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none; background: transparent; color: var(--text-secondary);
+    transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out;
+  }
+  .tab.active { background: var(--blue); color: #fff; }
+  .tab:hover:not(.active) { color: var(--text-primary); }
+  .tab:active { transform: scale(0.97); }
+  
+  .product-panels > div { display: none; }
+  .product-panels > div.visible { display: block; }
+
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+  .prod-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2.5rem 2rem;  /* impeccable: capped at 14px */
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex; flex-direction: column; gap: 1.25rem;
+    position: relative; overflow: hidden;
+  }
+  .prod-card:hover { border-color: var(--border-active); background: var(--bg-card-hover); transform: translateY(-3px); }
+  .prod-card.featured { border-color: var(--blue); background: rgba(13, 112, 242, 0.04); }
+  .prod-card.featured:hover { background: rgba(13, 112, 242, 0.08); }
+  
+  .prod-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--blue-pale); text-transform: uppercase; }
+  .prod-badge-featured { background: var(--blue); color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .prod-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
+  .prod-amount { font-size: 13px; color: var(--text-secondary); }
+  .prod-divider { height: 1px; background: var(--border); }
+  .prod-big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--blue-pale); font-variant-numeric: tabular-nums; }
+  .prod-big-label { font-size: 11px; color: var(--text-secondary); }
+  .prod-features { display: flex; flex-direction: column; gap: 10px; }
+  .prod-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .prod-feature::before { content: '✓'; color: var(--blue); font-size: 13px; font-weight: bold; flex-shrink: 0; }
+  .prod-ref { font-size: 11px; color: var(--blue-pale); font-weight: 600; border-top: 1px solid var(--border); padding-top: 1rem; }
+  
+  .prod-cta {
+    width: 100%; padding: 12px; border-radius: 8px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 1.5px solid var(--blue); color: var(--blue-pale); background: transparent;
+    letter-spacing: 0.02em;
+    transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out;
+    text-align: center;
+  }
+  .prod-cta:hover { background: var(--blue); color: #fff; }
+  .prod-cta:active { transform: scale(0.97); }
+  .prod-cta.filled { background: var(--blue); color: #fff; }
+  .prod-cta.filled:hover { background: var(--blue-light); }
+
+  /* ── PORTFOLIO SERVICES (LISTS) ── */
+  .services-list { display: flex; flex-direction: column; gap: 1rem; max-width: 900px; margin: 0 auto; }
+  .svc { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 1.5rem 2rem; background: var(--bg-card); border-radius: 16px; 
+    gap: 1.5rem; border: 1px solid var(--border); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+  }
+  .svc:hover {
+    border-color: var(--border-active);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+  }
+  .svc-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .svc-desc { font-size: 13px; color: var(--text-secondary); }
+  .svc-badge { 
+    font-size: 10px; font-weight: 700; padding: 6px 14px; border-radius: 20px; 
+    background: rgba(13, 112, 242, 0.12); color: var(--blue-pale); white-space: nowrap; 
+    border: 1px solid rgba(13, 112, 242, 0.25); letter-spacing: 0.05em;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 8rem 2.5rem; max-width: 1100px; margin: 0 auto; position: relative; z-index: 10; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 4.5rem; position: relative; }
+  .steps::before {
+    content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-active), var(--border-active), transparent);
+    opacity: 0.5;
+  }
+  .step { text-align: center; position: relative; }
+  .step-circle {
+    width: 58px; height: 58px; border-radius: 50%; background: rgba(13, 112, 242, 0.08);
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
+    font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--blue-pale);
+    border: 2px solid rgba(13, 112, 242, 0.25);
+    transition: all 0.3s;
+  }
+  .step:hover .step-circle {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 0 15px var(--blue-glow);
+  }
+  .step-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .step-text { font-size: 12px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── COMMITMENT ── */
+  .commit-section { background: #0C0F16; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 7rem 2.5rem; position: relative; z-index: 10; }
+  .commit-inner { max-width: 1100px; margin: 0 auto; }
+  .commit-headline { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--text-primary); margin-bottom: 4rem; text-align: center; letter-spacing: -0.01em; }
+  /* impeccable: gradient text is banned — use solid blue accent instead */
+  .commit-headline span { color: var(--blue-pale); }
+  .commit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+  .commit-card { 
+    position: relative;
+    border: 1px solid var(--border); 
+    border-radius: 16px; 
+    padding: 1.5rem; 
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  }
+  .commit-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 11, 28, 0.95) 0%, rgba(3, 11, 28, 0.6) 40%, rgba(3, 11, 28, 0) 100%);
+    z-index: 1;
+    transition: opacity 0.4s ease;
+  }
+  .commit-card:hover { 
+    border-color: rgba(255,255,255,0.3); 
+    transform: translateY(-8px);
+  }
+  .commit-card:hover::before {
+    opacity: 0.8;
+  }
+  .commit-content { position: relative; z-index: 2; }
+  .commit-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.75rem; margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.02em; }
+  .commit-text { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+
+  /* ── SOCIAL PROOF ── */
+  .proof-section { padding: 7rem 2.5rem; position: relative; z-index: 10; }
+  .proof-inner { max-width: 1240px; margin: 0 auto; }
+  .proof-headline { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 800; text-align: center; margin-bottom: 4rem; letter-spacing: -0.01em; }
+  
+  .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+  .testi {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;  /* impeccable: capped at 14px */
+    padding: 2.25rem; display: flex; flex-direction: column; gap: 1.25rem;
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .testi:hover { border-color: var(--border-active); background: var(--bg-card-hover); }
+  .testi-stars { color: var(--blue-pale); font-size: 14px; letter-spacing: 2px; }
+  .testi-text { font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: rgba(13, 112, 242, 0.10); border: 1px solid rgba(13, 112, 242, 0.25); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 14px; font-weight: 800; color: var(--blue-pale); }
+  .testi-name { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-primary); }
+  .testi-role { font-size: 11px; color: var(--text-secondary); }
+  
+  .trust-row { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; margin-top: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+  .trust-item { text-align: center; }
+  .trust-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .trust-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.05em; margin-top: 4px; text-transform: uppercase; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: radial-gradient(circle at top left, #141B2B 0%, #080B11 100%);
+    border-top: 1px solid var(--border);
+    padding: 7rem 2.5rem; text-align: center;
+    position: relative; z-index: 10;
+  }
+  .cta-headline { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .cta-sub { color: var(--text-secondary); font-size: 16px; margin-bottom: 3.5rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .cta-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto 1.5rem; flex-wrap: wrap; }
+  .cta-input {
+    flex: 1; padding: 14px 18px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px;
+    background: rgba(255, 255, 255, 0.03); color: var(--text-primary); outline: none; min-width: 200px;
+    font-family: var(--font-body);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cta-input::placeholder { color: rgba(255, 255, 255, 0.35); }
+  .cta-input:focus { 
+    background: rgba(13, 112, 242, 0.06); 
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-glow);
+  }
+  .cta-btn {
+    padding: 14px 28px; background: var(--blue); color: #fff; border: none;
+    border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s;
+    font-family: var(--font-body); white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+  .cta-btn:hover { 
+    background: var(--blue-light); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px var(--blue-glow);
+  }
+  .cta-btn:active { transform: scale(0.97); }
+  .cta-note { font-size: 11px; color: var(--text-secondary); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #05070B; color: var(--text-secondary); padding: 3rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    position: relative; z-index: 10;
+  }
+  footer a { color: var(--blue-pale); text-decoration: none; font-weight: 600; }
+  footer a:hover { text-decoration: underline; }
+  .footer-logo { font-family: var(--font-display); color: var(--text-primary); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; }
+
+  /* ── SCROLL REVEAL ── */
+  /* Pain items and diff cards have their own reveal logic with stagger; only use .reveal for section-level elements */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ── FOCUS STATES (Accessibility) ── */
+  *:focus-visible {
+    outline: 2px solid var(--blue) !important;
+    outline-offset: 3px !important;
+  }
+
+  /* ── MEDIA QUERIES ── */
+  @media (max-width: 992px) {
+    .hero { grid-template-columns: 1fr; padding-top: 120px; padding-left: 1.5rem; padding-right: 1.5rem; gap: 3.5rem; text-align: center; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-eyebrow::before { display: none; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .simulator-container { max-width: 500px; margin: 0 auto; text-align: left; }
+    .diff-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .segment-selector { display: none; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .steps::before { display: none; }
+    .pain-section, .products-section, .commit-section, .cta-section, .proof-section { padding: 5rem 1.5rem; }
+    .how-section { padding: 5rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; }
+    footer div { text-align: center !important; }
+  }
+
+  @media (max-width: 480px) {
+    .steps { grid-template-columns: 1fr; }
+    .trust-row { gap: 2rem; }
+    .cta-form { flex-direction: column; }
+    .cta-btn { width: 100%; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .pain-item, .diff-card {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .orb { display: none; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      /* Kowalski: reduced motion keeps opacity fades but removes layout/transform motion */
+    }
+  }
+
+  /* ── VERTICALES DE NEGOCIO (Actinver-inspired) ── */
+  .verticals-section {
+    padding: 6rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+  .verticals-header {
+    text-align: left;
+    margin-bottom: 3.5rem;
+  }
+  .verticals-eyebrow {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+  }
+  .verticals-headline {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .verticals-card {
+    position: relative;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .verticals-card-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+  .verticals-card:hover .verticals-card-bg {
+    transform: scale(1.06);
+  }
+  .verticals-card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(8, 11, 17, 0.20) 0%, rgba(8, 11, 17, 0.90) 100%);
+    z-index: 2;
+    transition: background 0.4s ease;
+  }
+  .verticals-card:hover .verticals-card-overlay {
+    background: linear-gradient(to bottom, rgba(8, 11, 17, 0.10) 0%, rgba(0, 27, 77, 0.95) 100%);
+  }
+  .verticals-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .verticals-card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    max-width: 75%;
+  }
+  .verticals-card-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .verticals-card:hover .verticals-card-btn {
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: rotate(-45deg);
+  }
+  .verticals-card:hover {
+    border-color: var(--border-active);
+    box-shadow: 0 12px 30px rgba(13, 112, 242, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* ── BARRA DE CONFIANZA Y PRENSA (Actinver-inspired) ── */
+  .press-trust-section {
+    padding: 5rem 2.5rem;
+    background: rgba(0, 27, 77, 0.3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+  .press-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 3rem;
+  }
+  .press-logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto 2.5rem auto;
+  }
+  .press-logo-svg {
+    height: 24px;
+    fill: var(--text-secondary);
+    opacity: 0.5;
+    transition: opacity 0.3s ease, fill 0.3s ease;
+  }
+  .press-logo-svg:hover {
+    opacity: 0.95;
+    fill: var(--blue-light);
+  }
+  .press-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--blue-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .press-cta:hover {
+    color: var(--text-primary);
+  }
+
+  /* ── PREGUNTAS FRECUENTES (FAQ) (Actinver-inspired) ── */
+  .faq-section {
+    padding: 6rem 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+  .faq-headline {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    letter-spacing: -0.02em;
+  }
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .faq-item {
+    border: 1px solid var(--border);
+    background: rgba(17, 24, 39, 0.40);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .faq-item.active {
+    border-color: var(--border-active);
+    background: rgba(10, 28, 70, 0.40);
+  }
+  .faq-question {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    outline: none;
+  }
+  .faq-question:focus-visible {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.7;
+  }
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--blue-light);
+    opacity: 1;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+<!-- BACKGROUND ORBS -->
+<div class="orb orb-light-blue" aria-hidden="true"></div>
+<div class="orb orb-blue" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="#inicio" class="nav-logo" aria-label="Moshpitt Asesores Inicio">
+      <div class="nav-logo-icon">MA</div>
+      <span class="nav-logo-text">MOSHPITT ASESORES</span>
+    </a>
+    <div class="segment-selector" role="radiogroup" aria-label="Segmento de Asesoría">
+      <button class="segment-btn active" role="radio" aria-checked="true" onclick="selectSegment(this)">Personas</button>
+      <button class="segment-btn" role="radio" aria-checked="false" onclick="selectSegment(this)">Empresas</button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#testimonios">Resultados</a>
+    <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})" aria-label="Agendar diagnóstico gratuito">Agenda tu diagnóstico</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-container" id="inicio">
+  <section class="hero">
+    <div class="reveal in">
+      <div class="hero-eyebrow">Tu patrimonio, nuestra misión</div>
+      <h1 class="hero-headline">El asesor que te acompaña del <em>seguro a la jubilación</em></h1>
+      <p class="hero-sub">Seguros de vida, pensión IMSS optimizada, portafolios de inversión y fondo de ahorro privado: cuatro verticales, un solo equipo comprometido contigo.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+          Agenda tu diagnóstico gratuito
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3.33334 8H12.6667" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 3.33333L12.6667 8L8 12.6667" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver productos</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Verticales financieras</div></div>
+        <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">Costo diagnóstico inicial</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Asesoría independiente</div></div>
+      </div>
+    </div>
+    
+    <!-- INTERACTIVE SIMULATOR (Hero Visual) -->
+    <div class="hero-visual reveal in">
+      <div class="simulator-container">
+        <div class="sim-header">
+          <span>Simulador de Inversión</span>
+          <span class="sim-header-badge" id="sim-plan-badge">Fondo Premium</span>
+        </div>
+        
+        <div class="sim-input-group">
+          <div class="sim-label">
+            <label for="sim-range">Aportación Mensual</label>
+            <span class="sim-range-val" id="sim-range-val">$3,000&nbsp;MXN</span>
+          </div>
+          <input type="range" id="sim-range" min="1500" max="15000" step="500" value="3000" class="sim-slider" aria-valuemin="1500" aria-valuemax="15000" aria-valuenow="3000">
+        </div>
+        
+        <div class="sim-tabs" role="tablist" aria-label="Plazo de Ahorro">
+          <button class="sim-term-btn active" role="tab" aria-selected="true" data-years="5">5 Años</button>
+          <button class="sim-term-btn" role="tab" aria-selected="false" data-years="10">10 Años</button>
+        </div>
+        
+        <div class="sim-results">
+          <div class="sim-res-item">
+            <span>Capital Aportado</span>
+            <span class="sim-res-num" id="sim-capital">$180,000</span>
+          </div>
+          <div class="sim-res-item">
+            <span>Rendimiento Proyectado</span>
+            <span class="sim-res-num text-blue-pale" id="sim-yield">$72,000</span>
+          </div>
+          <div class="sim-res-item total">
+            <span>Monto Total Proyectado</span>
+            <span class="sim-res-num text-blue-bold" id="sim-total">$252,000</span>
+          </div>
+        </div>
+        
+        <div class="sim-note">
+          Rendimiento mensual garantizado de <span id="sim-monthly-yield">$1,200</span>&nbsp;MXN.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="pain-section">
+  <!-- Eyebrow removed here per impeccable restraint rule (≤1 per 3 sections) -->
+  <h2 class="pain-headline">Los problemas que nadie te quiere resolver</h2>
+  <p class="pain-sub">El 78&nbsp;% de los mexicanos no tiene un plan de retiro formal. No es falta de dinero, es falta de guía.</p>
+  <div class="pain-grid">
+    <div class="pain-item">
+      <!-- Replaced emoji with inline SVG per taste skill -->
+      <div class="pain-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      </div>
+      <h3 class="pain-item-title">No sé cuánto recibiré del IMSS</h3>
+      <p class="pain-item-text">La mayoría cotiza décadas sin saber que puede multiplicar su pensión con Modalidad 40.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3 class="pain-item-title">Mi dinero no rinde en el banco</h3>
+      <p class="pain-item-text">Las cuentas de ahorro bancarias pierden valor frente a la inflación. El mercado bursátil parece inalcanzable.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <h3 class="pain-item-title">No tengo seguro de vida</h3>
+      <p class="pain-item-text">Si faltaras mañana, ¿tu familia podría mantener su calidad de vida? El 80&nbsp;% de los mexicanos no está protegido.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.2"/></svg>
+      </div>
+      <h3 class="pain-item-title">Nadie me ofrece todo en un lugar</h3>
+      <p class="pain-item-text">Los bancos venden sus propios productos. Nosotros somos independientes y elegimos lo mejor para ti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALES DE NEGOCIO (Actinver-inspired) -->
+<section class="verticals-section" id="servicios">
+  <div class="verticals-header reveal">
+    <div class="verticals-eyebrow">Áreas de Especialidad</div>
+    <h2 class="verticals-headline">Una solución para cada meta de tu vida financiera</h2>
+  </div>
+  <div class="verticals-grid">
+    <a href="#productos" class="verticals-card reveal" aria-label="Explorar planes de Fondos de Ahorro">
+      <div class="verticals-card-bg" style="background-image: url('vertical_ahorro.png');"></div>
+      <div class="verticals-card-overlay"></div>
+      <div class="verticals-card-content">
+        <h3 class="verticals-card-title">Fondos de Ahorro Garantizado</h3>
+        <div class="verticals-card-btn" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+    
+    <a href="#productos" class="verticals-card reveal" aria-label="Explorar Portafolios Bursátiles e Inversiones">
+      <div class="verticals-card-bg" style="background-image: url('vertical_inversion.png');"></div>
+      <div class="verticals-card-overlay"></div>
+      <div class="verticals-card-content">
+        <h3 class="verticals-card-title">Portafolios Bursátiles</h3>
+        <div class="verticals-card-btn" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+    
+    <a href="#productos" class="verticals-card reveal" aria-label="Explorar planes de Pensión y Retiro">
+      <div class="verticals-card-bg" style="background-image: url('vertical_retiro.png');"></div>
+      <div class="verticals-card-overlay"></div>
+      <div class="verticals-card-content">
+        <h3 class="verticals-card-title">Pensión y Jubilación</h3>
+        <div class="verticals-card-btn" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+    
+    <a href="#productos" class="verticals-card reveal" aria-label="Explorar Seguros de Vida y Auto">
+      <div class="verticals-card-bg" style="background-image: url('vertical_seguros.png');"></div>
+      <div class="verticals-card-overlay"></div>
+      <div class="verticals-card-content">
+        <h3 class="verticals-card-title">Seguros de Vida y Auto</h3>
+        <div class="verticals-card-btn" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="diff-section" id="diferenciadores">
+  <div class="section-eyebrow">Por qué elegirnos</div>
+  <h2 class="section-headline">Lo que ningún banco ni aseguradora puede ofrecerte</h2>
+  <div class="diff-grid">
+    <!-- impeccable: numbered markers (01/02/03) as default scaffold → BANNED. Replaced with minimal blue dot accent -->
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Asesoría 360° e independiente</h3>
+      <p class="diff-text">No somos empleados de MetLife, GBM ni Quálitas. Somos tus asesores. Elegimos el producto que más te conviene a ti, no el que más nos deja comisión.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Cuatro verticales en un solo equipo</h3>
+      <p class="diff-text">Seguros de vida y autos, optimización de pensión IMSS (Mod 40), portafolios bursátiles y fondo de ahorro privado. Ningún competidor boutique cubre todo esto.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Fondo de ahorro con rendimiento garantizado</h3>
+      <p class="diff-text">El Fondo Moshpitt Plus, Premium y Black entrega capital + rendimiento fijo al finalizar. Desde $1,500/mes con retorno demostrable desde el día uno.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Acceso al mercado bursátil real</h3>
+      <p class="diff-text">Operamos en BMV, BIVA y mercado internacional (SIC) a través de GBM. ETFs, FIBRAs, acciones, bonos y deuda gubernamental al alcance de cualquier perfil.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Pensión IMSS maximizada con Modalidad 40</h3>
+      <p class="diff-text">Calculamos tu historial de cotizaciones, proyectamos escenarios y te guiamos para que llegues a la jubilación con la mayor pensión posible bajo Ley 73.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-dot" aria-hidden="true"></div>
+      <h3 class="diff-title">Referidos que multiplican tu rendimiento</h3>
+      <p class="diff-text">Cada persona que refieres suma hasta $200&nbsp;MXN adicionales a tu rendimiento mensual. Tu red social se convierte en un activo financiero real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="productos">
+  <div class="products-inner">
+    <div class="products-header reveal">
+      <div class="products-eyebrow">Nuestros productos</div>
+      <h2 class="products-headline">Elige el plan que se adapta a tu vida</h2>
+      <p class="products-sub">Transparencia total en cada producto. Nada oculto, sin letra pequeña.</p>
+    </div>
+    
+    <div class="tabs" role="tablist" aria-label="Categorías de Productos">
+      <button class="tab active" role="tab" aria-selected="true" id="tab-ahorro" aria-controls="panel-ahorro" onclick="showPanel('ahorro', this)">Fondo de Ahorro</button>
+      <button class="tab" role="tab" aria-selected="false" id="tab-seguros" aria-controls="panel-seguros" onclick="showPanel('seguros', this)">Seguros</button>
+      <button class="tab" role="tab" aria-selected="false" id="tab-inversion" aria-controls="panel-inversion" onclick="showPanel('inversion', this)">Inversión & Retiro</button>
+    </div>
+    
+    <div class="product-panels">
+      <!-- AHORRO -->
+      <div id="panel-ahorro" class="visible" role="tabpanel" aria-labelledby="tab-ahorro">
+        <div class="product-grid">
+          <div class="prod-card">
+            <div class="prod-badge">Moshpitt Plus</div>
+            <h3 class="prod-name">Plan Base</h3>
+            <p class="prod-amount">$1,500 / mes · 5 años de aportación</p>
+            <div class="prod-divider"></div>
+            <div class="prod-big">$126,000</div>
+            <div class="prod-big-label">Capital + rendimiento al 6° año</div>
+            <div class="prod-features">
+              <div class="prod-feature">Rendimiento mensual de $600</div>
+              <div class="prod-feature">Capital aportado: $90,000</div>
+              <div class="prod-feature">Rendimiento total: $36,000</div>
+              <div class="prod-feature">Retiro total o parcial al vencimiento</div>
+            </div>
+            <div class="prod-ref">★ Referidos: +$100&nbsp;MXN por cada uno</div>
+            <button class="prod-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})" aria-label="Empezar con el Plan Base Moshpitt Plus">Quiero empezar</button>
+          </div>
+          
+          <div class="prod-card featured">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="prod-badge">Moshpitt Premium</div>
+              <span class="prod-badge-featured">Más popular</span>
+            </div>
+            <h3 class="prod-name">Plan Medio</h3>
+            <p class="prod-amount">$3,000 / mes · 5 años de aportación</p>
+            <div class="prod-divider"></div>
+            <div class="prod-big">$252,000</div>
+            <div class="prod-big-label">Capital + rendimiento al 6° año</div>
+            <div class="prod-features">
+              <div class="prod-feature">Rendimiento mensual de $1,200</div>
+              <div class="prod-feature">Capital aportado: $180,000</div>
+              <div class="prod-feature">Rendimiento total: $72,000</div>
+              <div class="prod-feature">Retiro total o parcial al vencimiento</div>
+            </div>
+            <div class="prod-ref">★ Referidos: +$150&nbsp;MXN por cada uno</div>
+            <button class="prod-cta filled" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})" aria-label="Empezar con el Plan Medio Moshpitt Premium">Quiero empezar</button>
+          </div>
+          
+          <div class="prod-card">
+            <div class="prod-badge">Moshpitt Black</div>
+            <h3 class="prod-name">Plan Alto</h3>
+            <p class="prod-amount">Desde $6,000 / mes · monto flexible</p>
+            <div class="prod-divider"></div>
+            <div class="prod-big">$504,000+</div>
+            <div class="prod-big-label">Capital + rendimiento mejorado al 6° año</div>
+            <div class="prod-features">
+              <div class="prod-feature">Rendimiento mensual de $2,400+</div>
+              <div class="prod-feature">Capital aportado: $360,000+</div>
+              <div class="prod-feature">Rendimiento mejorado + extra al cierre</div>
+              <div class="prod-feature">Monto y tiempo ajustable a tu perfil</div>
+            </div>
+            <div class="prod-ref">★ Referidos: +$200&nbsp;MXN por cada uno</div>
+            <button class="prod-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})" aria-label="Cotizar plan personalizado Moshpitt Black">Cotizar personalizado</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SEGUROS -->
+      <div id="panel-seguros" role="tabpanel" aria-labelledby="tab-seguros">
+        <div class="services-list">
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Seguro de Vida MetLife — MET 99</h3>
+              <p class="svc-desc">Producto principal con cobertura vitalicia, ahorro e inversión incluida</p>
+            </div>
+            <span class="svc-badge">MetLife</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Gastos Médicos Mayores</h3>
+              <p class="svc-desc">Cobertura hospitalaria de alto nivel para ti y tu familia</p>
+            </div>
+            <span class="svc-badge">MetLife</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Seguros de Automóvil</h3>
+              <p class="svc-desc">Autos y motocicletas con las mejores aseguradoras del mercado</p>
+            </div>
+            <span class="svc-badge">Quálitas · ANA · Banorte · El Águila</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Seguros de Flotilla Empresarial</h3>
+              <p class="svc-desc">Ideal para PyMEs y empresas con múltiples vehículos</p>
+            </div>
+            <span class="svc-badge">Banorte Seguros</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Seguro Educativo e Inversión</h3>
+              <p class="svc-desc">Construye el futuro educativo de tus hijos hoy</p>
+            </div>
+            <span class="svc-badge">MetLife</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- INVERSION -->
+      <div id="panel-inversion" role="tabpanel" aria-labelledby="tab-inversion">
+        <div class="services-list">
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Modalidad 40 IMSS</h3>
+              <p class="svc-desc">Diagnóstico, cálculo y gestión para maximizar tu pensión de jubilación</p>
+            </div>
+            <span class="svc-badge">Asesoría especializada</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Plan Personal de Retiro (PPR)</h3>
+              <p class="svc-desc">Ahorro para el retiro con beneficios fiscales deducibles</p>
+            </div>
+            <span class="svc-badge">MetLife · GBM</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Portafolio de Inversión Personal</h3>
+              <p class="svc-desc">ETFs, acciones, FIBRAs, bonos y deuda corporativa a tu medida</p>
+            </div>
+            <span class="svc-badge">GBM · BMV · BIVA</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Deuda Gubernamental (CETEs, UDIBONOS)</h3>
+              <p class="svc-desc">Instrumentos seguros y respaldados por el Gobierno Federal</p>
+            </div>
+            <span class="svc-badge">Bajo riesgo</span>
+          </div>
+          <div class="svc">
+            <div class="svc-info">
+              <h3 class="svc-name">Notas Estructuradas y Derivados</h3>
+              <p class="svc-desc">Instrumentos sofisticados diseñados según tu perfil riesgo-rendimiento</p>
+            </div>
+            <span class="svc-badge">Perfil audaz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="como-funciona">
+  <div class="section-eyebrow">El proceso</div>
+  <h2 class="section-headline">De cero a tu plan financiero en 4 pasos</h2>
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-circle" aria-hidden="true">1</div>
+      <h3 class="step-title">Diagnóstico gratuito</h3>
+      <p class="step-text">Evaluamos tu situación actual: ingresos, ahorros, seguros vigentes y expectativas de retiro. Sin costo.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle" aria-hidden="true">2</div>
+      <h3 class="step-title">Plan a tu medida</h3>
+      <p class="step-text">Diseñamos una estrategia combinando los productos que más se adaptan a tus metas y perfil de riesgo.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle" aria-hidden="true">3</div>
+      <h3 class="step-title">Activamos todo</h3>
+      <p class="step-text">Contratamos seguros, abrimos portafolios y gestionamos tu Modalidad 40 con acompañamiento total.</p>
+    </div>
+    <div class="step">
+      <div class="step-circle" aria-hidden="true">4</div>
+      <h3 class="step-title">Seguimiento continuo</h3>
+      <p class="step-text">Revisiones periódicas de tu portafolio, actualizaciones de cobertura y ajustes según tu vida cambie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENT -->
+<section class="commit-section reveal">
+  <div class="commit-inner">
+    <h2 class="commit-headline">Nuestro compromiso <span>contigo</span></h2>
+    <div class="commit-grid">
+      <div class="commit-card" style="background-image: url('./imagenes/transparencia_hook_1782692600429.png');">
+        <div class="commit-content">
+          <h3 class="commit-title">
+            Transparencia total
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </h3>
+          <p class="commit-text">Te explicamos cada producto, cada rendimiento y cada comisión. Sin sorpresas.</p>
+        </div>
+      </div>
+      <div class="commit-card" style="background-image: url('./imagenes/interes_hook_1782692607157.png');">
+        <div class="commit-content">
+          <h3 class="commit-title">
+            Tu interés primero
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </h3>
+          <p class="commit-text">Somos independientes. Recomendamos lo que te conviene a ti, no lo que nos conviene a nosotros.</p>
+        </div>
+      </div>
+      <div class="commit-card" style="background-image: url('./imagenes/acceso_hook_1782692614665.png');">
+        <div class="commit-content">
+          <h3 class="commit-title">
+            Acceso directo
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </h3>
+          <p class="commit-text">Tu asesor siempre disponible. Sin call centers, sin formularios que no responden.</p>
+        </div>
+      </div>
+      <div class="commit-card" style="background-image: url('./imagenes/resultados_hook_1782692623367.png');">
+        <div class="commit-content">
+          <h3 class="commit-title">
+            Resultados verificables
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8;"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </h3>
+          <p class="commit-text">Cada producto tiene proyecciones claras y documentadas desde el primer día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof-section" id="testimonios">
+  <div class="proof-inner">
+    <h2 class="proof-headline reveal">Lo que dicen nuestros clientes</h2>
+    <div class="testimonials">
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <blockquote class="testi-text">“Llevaba 18 años cotizando al IMSS sin saber que podía duplicar mi pensión. Moshpitt me hizo el diagnóstico, activamos Modalidad 40 y ahora proyecto $28,000 al mes en retiro.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">CM</div>
+          <div>
+            <cite class="testi-name">Carlos M.</cite>
+            <div class="testi-role">Ingeniero industrial · 52 años</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <blockquote class="testi-text">“Empecé con el Fondo Plus a $1,500 al mes. A los 6 años recibí $126,000 y lo reinvertí en el Premium. No lo podría haber hecho sin la guía del equipo.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">LR</div>
+          <div>
+            <cite class="testi-name">Laura R.</cite>
+            <div class="testi-role">Contadora independiente · 38 años</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testi reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <blockquote class="testi-text">“Tenía seguro de auto con tres aseguradoras distintas para mi flotilla. Moshpitt consolidó todo con Banorte, bajé mis primas 22&nbsp;% y mejoré coberturas. Además me hicieron su seguro de vida colectivo.”</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">JA</div>
+          <div>
+            <cite class="testi-name">Javier A.</cite>
+            <div class="testi-role">Director de PYME · 45 años</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="trust-row reveal">
+      <div class="trust-item"><div class="trust-num">7+</div><div class="trust-label">Alianzas certificadas</div></div>
+      <div class="trust-item"><div class="trust-num">4+</div><div class="trust-label">Verticales financieras</div></div>
+      <div class="trust-item"><div class="trust-num">$0</div><div class="trust-label">Costo del diagnóstico</div></div>
+      <div class="trust-item"><div class="trust-num">BMV</div><div class="trust-label">Acceso bursátil real</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee Section -->
+<section style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); background: #030b1c; padding: 2.5rem 0; overflow: hidden; position: relative; z-index: 10;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <h2 style="font-family: var(--font-display); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Nuestra alianza y respaldo institucional</h2>
+    </div>
+    <div style="position: relative; display: flex; overflow-x: hidden;">
+        <div style="display: flex; white-space: nowrap; align-items: center; gap: 4rem; padding: 0 2rem; animation: marquee 20s linear infinite;">
+            <img src="./imagenes/Grupo_BMV.png" alt="BMV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/Logo_CNBV.png" alt="CNBV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+        </div>
+        <!-- Duplicate for infinite effect -->
+        <div style="display: flex; position: absolute; top: 0; left: 100%; white-space: nowrap; align-items: center; gap: 4rem; padding: 0 2rem; animation: marquee2 20s linear infinite;">
+            <img src="./imagenes/Grupo_BMV.png" alt="BMV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/Logo_CNBV.png" alt="CNBV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+            <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+        </div>
+    </div>
+</section>
+<style>
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes marquee2 {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
+
+
+<!-- PREGUNTAS FRECUENTES (FAQ) (Actinver-inspired) -->
+<section class="faq-section" id="faq">
+  <h2 class="faq-headline reveal">¿Aún tienes más dudas?</h2>
+  <div class="faq-accordion reveal">
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cómo funciona la asesoría de Moshpitt Asesores?
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Analizamos tu situación financiera actual (ingresos, egresos, aportaciones al IMSS si aplica, coberturas de seguros vigentes) y diseñamos una estrategia patrimonial a tu medida. No somos promotores de una sola marca; elegimos los mejores productos del mercado (GBM, MetLife, Quálitas, etc.) para que alcances tus metas.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Tienen algún costo sus diagnósticos iniciales?
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          No, el diagnóstico patrimonial inicial de 30 minutos es 100% gratuito y sin compromiso de contratación. Nuestro objetivo es mostrarte oportunidades de optimización y, si decides avanzar, te ayudamos a instrumentar los planes.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuál es el monto mínimo para iniciar mi fondo de ahorro?
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Puedes iniciar tu fondo de ahorro garantizado con el Plan Base (Moshpitt Plus) desde $1,500 MXN mensuales, aportando durante un plazo fijo de 5 años para recibir tu capital acumulado más rendimientos al sexto año.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué rendimiento ofrece el Fondo Moshpitt?
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Ofrecemos un rendimiento mensual garantizado de hasta el 40% sobre tu aportación acumulada (equivalente a un retorno fijo anualizado altamente competitivo). Por ejemplo, aportando $3,000 MXN mensuales por 5 años, acumulas $180,000 MXN de capital y obtienes $72,000 MXN adicionales de rendimiento garantizado.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Bajo qué instituciones financieras están regulados mis recursos?
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Todos los recursos y contratos se operan bajo la custodia y regulación de las instituciones financieras más sólidas del país, tales como GBM (regulada por la CNBV y Banco de México), MetLife (regulada por la CNSF), y aseguradoras líderes debidamente autorizadas ante la SHCP.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<!-- HIGH-CONVERSION CTA (Inflation Calculator & Lead Form) -->
+<section class="cta-section" id="cta" style="padding: 4rem 2rem; background: var(--bg-dark);">
+  <div style="display: flex; flex-direction: column; gap: 2rem; width: 100%; max-width: 900px; margin: 0 auto; align-items: center;">
+    
+    <!-- Inflation Calculator -->
+    <div style="background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(255, 60, 60, 0.3); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(255, 60, 60, 0.1); width: 100%;">
+      <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; margin-bottom: 1rem; line-height: 1.3; text-align: center;">
+        La inflación trabaja en tu contra cada día
+      </h3>
+      <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+        ¿Cuánto vale hoy el dinero que guardas debajo del colchón? El 86% de tu poder adquisitivo puede desaparecer en 15 años sin hacer nada.
+      </p>
+      
+      <div style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <label for="inf-savings" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary);">
+            ¿Cuánto dinero tienes ahorrado sin invertir?
+          </label>
+          <span style="color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem;" id="inf-savings-val">$10,000 MXN</span>
+        </div>
+        <input type="range" id="inf-savings" min="5000" max="200000" step="5000" value="10000" class="sim-slider" style="width: 100%;">
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background: rgba(255, 60, 60, 0.1); border: 1px solid rgba(255, 60, 60, 0.2); border-radius: 0.5rem; padding: 1rem; text-align: center;">
+          <div style="font-size: 0.85rem; color: #ff8a8a; font-weight: 600;">En 1 año</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin: 0.5rem 0;">-4.71%</div>
+          <div style="font-size: 1.25rem; font-family: var(--font-display); font-weight: 800; color: #ff8a8a;" id="val-1y">$9,529</div>
+        </div>
+        <div style="background: rgba(255, 60, 60, 0.1); border: 1px solid rgba(255, 60, 60, 0.2); border-radius: 0.5rem; padding: 1rem; text-align: center;">
+          <div style="font-size: 0.85rem; color: #ff8a8a; font-weight: 600;">En 5 años</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin: 0.5rem 0;">-23.23%</div>
+          <div style="font-size: 1.25rem; font-family: var(--font-display); font-weight: 800; color: #ff8a8a;" id="val-5y">$7,677</div>
+        </div>
+        <div style="background: rgba(255, 60, 60, 0.1); border: 1px solid rgba(255, 60, 60, 0.2); border-radius: 0.5rem; padding: 1rem; text-align: center;">
+          <div style="font-size: 0.85rem; color: #ff8a8a; font-weight: 600;">En 10 años</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin: 0.5rem 0;">-53.09%</div>
+          <div style="font-size: 1.25rem; font-family: var(--font-display); font-weight: 800; color: #ff8a8a;" id="val-10y">$4,691</div>
+        </div>
+        <div style="background: rgba(255, 60, 60, 0.1); border: 1px solid rgba(255, 60, 60, 0.2); border-radius: 0.5rem; padding: 1rem; text-align: center;">
+          <div style="font-size: 0.85rem; color: #ff8a8a; font-weight: 600;">En 15 años</div>
+          <div style="font-size: 1rem; font-weight: 700; color: #fff; margin: 0.5rem 0;">-86.06%</div>
+          <div style="font-size: 1.25rem; font-family: var(--font-display); font-weight: 800; color: #ff8a8a;" id="val-15y">$1,394</div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; font-size: 1.1rem; font-weight: 600; color: #ff8a8a; background: rgba(255,0,0,0.1); padding: 1rem; border-radius: 0.5rem;">
+        En 15 años habrías perdido en valor real: <span id="val-lost" style="font-weight: 800; font-size: 1.25rem;">$8,606</span>
+      </div>
+    </div>
+
+    <!-- Lead Capture Form -->
+    <div style="background: rgba(17, 24, 39, 0.85); border: 1px solid var(--border-active); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(13, 112, 242, 0.15); width: 100%;">
+      <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #fff; margin-bottom: 1rem; text-align: center;">
+        Ese dinero puede crecer, no desaparecer.
+      </h4>
+      <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; text-align: center;">
+        Moshpitt lo invierte por ti desde hoy. Diagnóstico gratuito en 30 minutos. Tu asesor te contacta hoy mismo.
+      </p>
+      
+      <div class="cta-form" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+        <input class="cta-input" type="text" placeholder="Tu nombre" id="lead-name" aria-label="Tu nombre" autocomplete="name" style="width: 100%;">
+        <input class="cta-input" type="email" placeholder="Correo electrónico" id="lead-email" aria-label="Tu correo electrónico" autocomplete="email" style="width: 100%;">
+        <input class="cta-input" type="tel" placeholder="WhatsApp" id="lead-phone" aria-label="Tu WhatsApp (10 dígitos)" autocomplete="tel" style="width: 100%;">
+        <button class="cta-btn" id="cta-submit-btn" onclick="handleLead()" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Quiero proteger mi dinero</button>
+      </div>
+      <div class="cta-note" id="cta-msg" aria-live="polite" style="margin-top: 1rem; text-align: center;">Sin compromiso · Respuesta en menos de 24 horas</div>
+      
+      <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--text-secondary); display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Sin costo · 100% confidencial
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            $1,500 mínimo mensual para empezar
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            4 verticales y 7+ aliados certificados
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">MOSHPITT ASESORES</div>
+    <div style="margin-top:6px;">Seguros · Pensiones IMSS · Portafolios · Fondo de Ahorro</div>
+  </div>
+  <div style="text-align:right;">
+    <div>Aliados: MetLife · GBM · Quálitas · Banorte · ANA · El Águila · BIVA</div>
+    <div style="margin-top:6px;">© 2014 Moshpitt Asesores · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  function showPanel(id, btn) {
+    document.querySelectorAll('.product-panels > div').forEach(p => p.classList.remove('visible'));
+    document.getElementById('panel-' + id).classList.add('visible');
+    document.querySelectorAll('.tab').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+  }
+
+  // Segment selector toggle
+  function selectSegment(btn) {
+    document.querySelectorAll('.segment-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-checked', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-checked', 'true');
+  }
+
+  // Simulator Interactive Logic (Signature Element)
+  const simRange = document.getElementById('sim-range');
+  const simRangeVal = document.getElementById('sim-range-val');
+  const simCapital = document.getElementById('sim-capital');
+  const simYield = document.getElementById('sim-yield');
+  const simTotal = document.getElementById('sim-total');
+  const simMonthlyYield = document.getElementById('sim-monthly-yield');
+  const simPlanBadge = document.getElementById('sim-plan-badge');
+  const simTermButtons = document.querySelectorAll('.sim-term-btn');
+
+  let currentYears = 5;
+
+  function formatCurrency(val) {
+    return '$' + val.toLocaleString('en-US');
+  }
+
+  function updateSimulator() {
+    const monthlyContribution = parseInt(simRange.value);
+    
+    // Plan naming logic
+    let planName = "Fondo Plus";
+    if (monthlyContribution >= 6000) {
+      planName = "Fondo Black";
+      simPlanBadge.style.background = "rgba(13, 112, 242, 0.2)";
+      simPlanBadge.style.color = "var(--blue-light)";
+    } else if (monthlyContribution >= 3000) {
+      planName = "Fondo Premium";
+      simPlanBadge.style.background = "rgba(13, 112, 242, 0.12)";
+      simPlanBadge.style.color = "var(--blue)";
+    } else {
+      simPlanBadge.style.background = "rgba(255, 255, 255, 0.08)";
+      simPlanBadge.style.color = "var(--text-secondary)";
+    }
+    
+    simPlanBadge.textContent = planName;
+    simRangeVal.textContent = formatCurrency(monthlyContribution) + " MXN";
+
+    // Formulas:
+    // Capital = Monthly contribution * 12 * Years
+    // Monthly yield = 40% of monthly contribution (0.4)
+    // Total yield = Monthly yield * 12 * Years
+    // Total projected = Capital + Total yield
+    const capital = monthlyContribution * 12 * currentYears;
+    const monthlyReturn = monthlyContribution * 0.4;
+    const totalYield = monthlyReturn * 12 * currentYears;
+    const totalProjected = capital + totalYield;
+
+    simCapital.textContent = formatCurrency(capital);
+    simYield.textContent = formatCurrency(totalYield);
+    simTotal.textContent = formatCurrency(totalProjected);
+    simMonthlyYield.textContent = formatCurrency(monthlyReturn);
+    simRange.setAttribute('aria-valuenow', monthlyContribution);
+  }
+
+  // Bind simulator events
+  simRange.addEventListener('input', updateSimulator);
+  
+  simTermButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      simTermButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      currentYears = parseInt(btn.getAttribute('data-years'));
+      updateSimulator();
+    });
+  });
+
+  // Initialize simulator
+  updateSimulator();
+
+  // Lead capture
+  function handleLead() {
+    const nameInput = document.getElementById('lead-name');
+    const phoneInput = document.getElementById('lead-phone');
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const msg = document.getElementById('cta-msg');
+    const btn = document.getElementById('cta-submit-btn');
+
+    if (!name || !phone) {
+      msg.textContent = '⚠ Por favor ingresa tu nombre y WhatsApp.';
+      msg.style.color = '#F87171';
+      return;
+    }
+
+    // Modern disabled state with spinner simulation
+    btn.disabled = true;
+    btn.textContent = 'Agendando…';
+    msg.textContent = 'Procesando tu solicitud…';
+    msg.style.color = 'var(--text-secondary)';
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Agendar gratis';
+      msg.textContent = `✅ ¡Listo, ${name}! Te contactamos en menos de 24 horas al ${phone}.`;
+      msg.style.color = 'var(--blue-pale)';
+      msg.style.fontWeight = '600';
+      nameInput.value = '';
+      phoneInput.value = '';
+    }, 1500);
+  }
+
+  // FAQ Accordion Toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const answer = btn.nextElementSibling;
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // Close all other items first
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('active')) {
+        otherItem.classList.remove('active');
+        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+
+    if (isExpanded) {
+      item.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = null;
+    } else {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // Scroll reveal - section-level .reveal elements
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { 
+      if (e.isIntersecting) { 
+        requestAnimationFrame(() => {
+          e.target.classList.add('in'); 
+        });
+      } 
+    });
+  }, { threshold: 0.06 });
+  
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Staggered reveal for pain items and diff cards
+  // Kowalski: stagger 30-80ms between items for natural cascade
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        requestAnimationFrame(() => e.target.classList.add('in'));
+        staggerObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pain-item, .diff-card, .verticals-card, .faq-item').forEach(el => staggerObserver.observe(el));
+
+  // Trigger items already in viewport on load
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.pain-item, .diff-card, .verticals-card, .faq-item').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('in');
+    });
+  });
+  // Inflation Calculator
+  const infInput = document.getElementById('inf-savings');
+  if (infInput) {
+    const formatCurrency = (num) => '$' + Math.round(num).toLocaleString('en-US');
+    const updateInflation = () => {
+      const val = parseFloat(infInput.value) || 0;
+      const valText = document.getElementById('inf-savings-val');
+      if (valText) valText.textContent = formatCurrency(val) + ' MXN';
+      document.getElementById('val-1y').textContent = formatCurrency(val * 0.9529);
+      document.getElementById('val-5y').textContent = formatCurrency(val * 0.7677);
+      document.getElementById('val-10y').textContent = formatCurrency(val * 0.4691);
+      document.getElementById('val-15y').textContent = formatCurrency(val * 0.1394);
+      document.getElementById('val-lost').textContent = formatCurrency(val * 0.8606);
+    };
+    infInput.addEventListener('input', updateInflation);
+    updateInflation();
+  }
+</script>
+</body>
+</html>

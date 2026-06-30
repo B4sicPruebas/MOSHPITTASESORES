@@ -1,0 +1,198 @@
+
+<h2 class="sr-only">Reporte de áreas de oportunidad — Moshpitt Asesores</h2>
+
+<style>
+  .ma-root { font-family: var(--font-sans); padding: 1.5rem 0; }
+  .ma-header { display: flex; align-items: center; gap: 16px; margin-bottom: 2rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 1.5rem; }
+  .ma-logo-circle { width: 48px; height: 48px; border-radius: 50%; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 500; font-size: 15px; flex-shrink: 0; }
+  .ma-title { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .ma-subtitle { font-size: 13px; color: var(--color-text-secondary); margin: 2px 0 0; }
+  .section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-tertiary); margin: 2rem 0 0.75rem; }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+  .metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; }
+  .metric-label { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
+  .metric-value { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .metric-sub { font-size: 11px; color: var(--color-text-tertiary); margin: 2px 0 0; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px; }
+  .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .card-icon { font-size: 18px; color: var(--color-text-secondary); }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
+  .tag { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: var(--border-radius-md); margin: 3px 3px 0 0; }
+  .tag-info { background: var(--color-background-info); color: var(--color-text-info); }
+  .tag-warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .tag-success { background: var(--color-background-success); color: var(--color-text-success); }
+  .tag-danger { background: var(--color-background-danger); color: var(--color-text-danger); }
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .comp-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px; text-align: center; }
+  .comp-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .comp-area { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 8px; }
+  .bar-wrap { background: var(--color-border-tertiary); border-radius: 4px; height: 5px; overflow: hidden; margin-top: 6px; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .opp-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .opp-item:last-child { border-bottom: none; }
+  .opp-num { font-size: 18px; font-weight: 500; color: var(--color-text-tertiary); min-width: 28px; }
+  .opp-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
+  .opp-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin: 0; }
+  .summary-box { border-left: 2px solid var(--color-border-primary); padding: 12px 16px; margin-top: 1rem; border-radius: 0; }
+  .summary-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin: 0; }
+  .sendBtn { background: transparent; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 14px; font-size: 13px; color: var(--color-text-secondary); cursor: pointer; margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 6px; }
+  .sendBtn:hover { background: var(--color-background-secondary); }
+</style>
+
+<div class="ma-root">
+
+  <div class="ma-header">
+    <div class="ma-logo-circle">MA</div>
+    <div>
+      <p class="ma-title">Moshpitt Asesores</p>
+      <p class="ma-subtitle">Reporte de oportunidades · Sector financiero y asegurador mexicano</p>
+    </div>
+  </div>
+
+  <p class="section-label">Panorama del negocio</p>
+  <div class="metric-grid">
+    <div class="metric">
+      <p class="metric-label">Áreas de negocio</p>
+      <p class="metric-value">3</p>
+      <p class="metric-sub">Seguros · Asesorías · Portafolios</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Alianzas clave</p>
+      <p class="metric-value">7+</p>
+      <p class="metric-sub">MetLife, GBM, Qualitas, Banorte...</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Instrumentos ofertados</p>
+      <p class="metric-value">10</p>
+      <p class="metric-sub">ETFs, FIBRAs, Derivados, Acciones…</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Mercados</p>
+      <p class="metric-value">BMV · BIVA</p>
+      <p class="metric-sub">+ Sistema Internacional (SIC)</p>
+    </div>
+  </div>
+
+  <p class="section-label">Giro comercial</p>
+  <div class="card">
+    <div class="card-head">
+      <i class="ti ti-building-bank card-icon" aria-hidden="true"></i>
+      <p class="card-title">Intermediación financiera y correduría de seguros independiente</p>
+    </div>
+    <p class="card-body">Moshpitt Asesores opera como una firma boutique de servicios financieros integrales: actúa como agente de seguros de vida, daños y GMM; como asesor de pensiones IMSS bajo Modalidad 40/10; y como gestor de portafolios a través de plataformas bursátiles (GBM, BMV, BIVA). Su modelo combina distribución de productos de terceros con asesoría patrimonial personalizada.</p>
+    <div style="margin-top: 10px;">
+      <span class="tag tag-info">Sector asegurador</span>
+      <span class="tag tag-info">Mercado de capitales</span>
+      <span class="tag tag-info">Planeación de retiro</span>
+      <span class="tag tag-info">IMSS Modalidad 40</span>
+    </div>
+  </div>
+
+  <p class="section-label">Competidores clave</p>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <p class="comp-name">GBM Homebroker</p>
+      <p class="comp-area">Portafolios / bursátil</p>
+      <div class="bar-wrap"><div class="bar-fill" style="width: 85%; background: #D85A30;"></div></div>
+      <p style="font-size:10px; color: var(--color-text-tertiary); margin:4px 0 0;">Amenaza alta</p>
+    </div>
+    <div class="comp-card">
+      <p class="comp-name">GNP / AXA</p>
+      <p class="comp-area">Seguros de vida y GMM</p>
+      <div class="bar-wrap"><div class="bar-fill" style="width: 78%; background: #D85A30;"></div></div>
+      <p style="font-size:10px; color: var(--color-text-tertiary); margin:4px 0 0;">Amenaza alta</p>
+    </div>
+    <div class="comp-card">
+      <p class="comp-name">Cetes Directo / FIRA</p>
+      <p class="comp-area">Deuda gubernamental</p>
+      <div class="bar-wrap"><div class="bar-fill" style="width: 60%; background: #BA7517;"></div></div>
+      <p style="font-size:10px; color: var(--color-text-tertiary); margin:4px 0 0;">Amenaza media</p>
+    </div>
+    <div class="comp-card">
+      <p class="comp-name">Fintechs (Kuspit, Bursanet)</p>
+      <p class="comp-area">Inversión digital</p>
+      <div class="bar-wrap"><div class="bar-fill" style="width: 70%; background: #D85A30;"></div></div>
+      <p style="font-size:10px; color: var(--color-text-tertiary); margin:4px 0 0;">Amenaza alta</p>
+    </div>
+    <div class="comp-card">
+      <p class="comp-name">Asesores IMSS privados</p>
+      <p class="comp-area">Pensiones Mod. 40</p>
+      <div class="bar-wrap"><div class="bar-fill" style="width: 50%; background: #639922;"></div></div>
+      <p style="font-size:10px; color: var(--color-text-tertiary); margin:4px 0 0;">Amenaza media</p>
+    </div>
+  </div>
+
+  <p class="section-label">Áreas de oportunidad</p>
+  <div class="card" style="padding: 1rem 1.25rem;">
+    <div class="opp-item">
+      <span class="opp-num">01</span>
+      <div>
+        <p class="opp-title">Digitalización del onboarding y firma electrónica</p>
+        <p class="opp-desc">El proceso de alta de clientes y firma de contratos en seguros y portafolios puede digitalizarse completamente. Las fintechs lo hacen en minutos; adoptar firma electrónica avanzada y CRM reduce fricción y abandono.</p>
+        <span class="tag tag-info">Alta prioridad</span>
+      </div>
+    </div>
+    <div class="opp-item">
+      <span class="opp-num">02</span>
+      <div>
+        <p class="opp-title">Contenido educativo y posicionamiento de marca</p>
+        <p class="opp-desc">La educación financiera en México es baja. Un canal de contenido (YouTube, LinkedIn, Podcast) posicionando a Moshpitt como referente en Modalidad 40, seguros de vida y ETFs puede generar clientes orgánicos de alto valor.</p>
+        <span class="tag tag-success">Alto potencial</span>
+      </div>
+    </div>
+    <div class="opp-item">
+      <span class="opp-num">03</span>
+      <div>
+        <p class="opp-title">Segmento PYME: seguros de flotilla y vida colectivo</p>
+        <p class="opp-desc">Las PyMEs mexicanas subaseguran a sus empleados y vehículos. Un paquete corporativo combinando seguros de auto-flotilla (Qualitas/Banorte) con vida colectiva (MetLife) ofrece ticket promedio más alto y contratos recurrentes.</p>
+        <span class="tag tag-warn">Oportunidad media</span>
+      </div>
+    </div>
+    <div class="opp-item">
+      <span class="opp-num">04</span>
+      <div>
+        <p class="opp-title">Planeación patrimonial integral (paquete 360°)</p>
+        <p class="opp-desc">Pocos asesores en México ofrecen seguros + inversiones + pensión IMSS en un solo plan. Moshpitt ya tiene las tres patas; crear un "Paquete Patrimonial 360°" diferencia la propuesta y aumenta el CLV del cliente.</p>
+        <span class="tag tag-success">Diferenciador clave</span>
+      </div>
+    </div>
+    <div class="opp-item">
+      <span class="opp-num">05</span>
+      <div>
+        <p class="opp-title">Expansión en instrumentos alternativos: FIBRAs y ETFs temáticos</p>
+        <p class="opp-desc">El mercado mexicano de FIBRAs creció sostenidamente. Los ETFs temáticos (tecnología, ESG, IA) atraen a nuevos perfiles de inversores. Capacitar al equipo y comunicar estos productos amplía el AUM gestionado.</p>
+        <span class="tag tag-info">Tendencia de mercado</span>
+      </div>
+    </div>
+    <div class="opp-item">
+      <span class="opp-num">06</span>
+      <div>
+        <p class="opp-title">Simulador online de Modalidad 40 y PPR</p>
+        <p class="opp-desc">Herramienta web con calculadora de ahorro IMSS y proyección de pensión captura leads calificados. Es uno de los servicios más buscados en México y Moshpitt ya domina el tema técnicamente.</p>
+        <span class="tag tag-success">Rápida implementación</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label">Propuesta de valor diferenciada</p>
+  <div class="card">
+    <p class="card-body">A diferencia de los bancos o aseguradoras directas, Moshpitt opera como un asesor independiente multiproducto: no está atado a una sola aseguradora ni a un solo bróker, lo que le permite armar soluciones a medida. Su ventaja competitiva real está en la combinación de seguros de vida, gestión de pensiones IMSS y portafolios de renta variable/deuda desde un solo punto de contacto.</p>
+    <div style="margin-top: 10px;">
+      <span class="tag tag-success">Independencia de marca</span>
+      <span class="tag tag-success">Asesoría integral</span>
+      <span class="tag tag-info">Acceso a BMV, BIVA y SIC</span>
+      <span class="tag tag-info">Dominio Modalidad 40</span>
+    </div>
+  </div>
+
+  <p class="section-label">Resumen ejecutivo</p>
+  <div class="summary-box">
+    <p class="summary-text">Moshpitt Asesores compite en el segmento de asesores financieros independientes boutique de México, un mercado con alta demanda reprimida de planeación patrimonial accesible. Su portafolio de tres verticales (seguros, pensiones, inversiones) le da una cobertura casi única para el cliente de clase media y media-alta. Las principales áreas de mejora son la digitalización del proceso comercial, la construcción de marca digital y el empaquetamiento de servicios para PyMEs. Si consolida su posicionamiento como "el asesor que te acompaña del seguro a la jubilación", tiene potencial real para crecer en un mercado donde el 78% de los mexicanos aún no tiene un plan de retiro formal.</p>
+  </div>
+
+  <button class="sendBtn" onclick="sendPrompt('Crea un plan de acción de 90 días para Moshpitt Asesores basado en las áreas de oportunidad identificadas')">
+    <i class="ti ti-arrow-right" aria-hidden="true"></i> Generar plan de acción 90 días ↗
+  </button>
+
+</div>
