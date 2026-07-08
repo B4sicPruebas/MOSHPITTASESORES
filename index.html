@@ -124,16 +124,18 @@
   .nav-links a:hover { color: var(--blue-pale); }
   
   .nav-cta {
-    background: linear-gradient(rgba(8, 11, 17, 0.85), rgba(8, 11, 17, 0.85)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(#080B11, #080B11), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: #fff; padding: 10px 22px; border-radius: 30px;
     font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.02em;
     transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s;
     cursor: pointer; border: 1px solid transparent;
   }
   .nav-cta:hover { 
-    background: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(255, 122, 0, 0.15), 0 4px 15px rgba(13, 112, 242, 0.15);
   }
@@ -166,8 +168,9 @@
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 3rem; }
   
   .btn-primary {
-    background: linear-gradient(rgba(8, 11, 17, 0.85), rgba(8, 11, 17, 0.85)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(#080B11, #080B11), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: #fff; padding: 14px 30px; border-radius: 30px;
     font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none;
     transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -175,8 +178,9 @@
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-primary:hover { 
-    background: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(255, 122, 0, 0.15), 0 4px 15px rgba(13, 112, 242, 0.15);
   }
@@ -466,28 +470,32 @@
   .prod-cta {
     width: 100%; padding: 12px; border-radius: 30px; font-size: 13px; font-weight: 700;
     cursor: pointer;
-    background: linear-gradient(rgba(8, 11, 17, 0.85), rgba(8, 11, 17, 0.85)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(#080B11, #080B11), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: var(--blue-pale); border: 1px solid transparent;
     letter-spacing: 0.02em;
     transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s;
     text-align: center;
   }
   .prod-cta:hover { 
-    background: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: #fff;
     box-shadow: 0 4px 15px rgba(255, 122, 0, 0.12), 0 4px 15px rgba(13, 112, 242, 0.12);
   }
   .prod-cta:active { transform: scale(0.97); }
   .prod-cta.filled {
-    background: linear-gradient(rgba(13, 112, 242, 0.12), rgba(13, 112, 242, 0.12)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.12), rgba(13, 112, 242, 0.12)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: #fff;
   }
   .prod-cta.filled:hover {
-    background: linear-gradient(rgba(13, 112, 242, 0.25), rgba(13, 112, 242, 0.25)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.25), rgba(13, 112, 242, 0.25)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   /* ── PORTFOLIO SERVICES (LISTS) ── */
@@ -623,8 +631,9 @@
   }
   .cta-btn {
     padding: 14px 28px;
-    background: linear-gradient(rgba(8, 11, 17, 0.85), rgba(8, 11, 17, 0.85)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(#080B11, #080B11), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     color: #fff; border: 1px solid transparent;
     border-radius: 30px; font-size: 14px; font-weight: 700; cursor: pointer;
     transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s ease-out, box-shadow 0.25s;
@@ -632,8 +641,9 @@
     letter-spacing: 0.02em;
   }
   .cta-btn:hover { 
-    background: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)) padding-box,
-                linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%) border-box;
+    background-image: linear-gradient(rgba(13, 112, 242, 0.15), rgba(13, 112, 242, 0.15)), linear-gradient(135deg, #FF7A00 0%, #7928CA 50%, #0D70F2 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(255, 122, 0, 0.15), 0 4px 15px rgba(13, 112, 242, 0.15);
   }
