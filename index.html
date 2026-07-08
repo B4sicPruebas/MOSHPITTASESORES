@@ -86,12 +86,12 @@
   }
   .nav-left { display: flex; align-items: center; gap: 2rem; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-icon {
-    width: 38px; height: 38px; background: linear-gradient(135deg, var(--blue) 0%, #0050C0 100%); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); color: #fff; font-size: 15px; font-weight: 800;
+  .nav-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    display: block;
   }
-  .nav-logo-text { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-primary); }
   
   /* Segment Selector (Actinver-inspired) */
   .segment-selector {
@@ -929,8 +929,7 @@
 <nav>
   <div class="nav-left">
     <a href="#inicio" class="nav-logo" aria-label="Moshpitt Asesores Inicio">
-      <div class="nav-logo-icon">MA</div>
-      <span class="nav-logo-text">MOSHPITT ASESORES</span>
+      <img src="./imagenes/Logo-cabecera-mospin.png" alt="Moshpitt Asesores" class="nav-logo-img" />
     </a>
     <div class="segment-selector" role="radiogroup" aria-label="Segmento de Asesoría">
       <button class="segment-btn active" role="radio" aria-checked="true" onclick="selectSegment(this)">Personas</button>
