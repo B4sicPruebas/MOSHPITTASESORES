@@ -1469,35 +1469,63 @@
     <div style="text-align: center; margin-bottom: 1.5rem;">
         <h2 style="font-family: var(--font-display); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Nuestra alianza y respaldo institucional</h2>
     </div>
-    <div style="position: relative; display: flex; overflow-x: hidden;">
-        <div style="display: flex; white-space: nowrap; align-items: center; gap: 4rem; padding: 0 2rem; animation: marquee 20s linear infinite;">
-            <img src="./imagenes/Grupo_BMV.png" alt="BMV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/Logo_CNBV.png" alt="CNBV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-        </div>
-        <!-- Duplicate for infinite effect -->
-        <div style="display: flex; position: absolute; top: 0; left: 100%; white-space: nowrap; align-items: center; gap: 4rem; padding: 0 2rem; animation: marquee2 20s linear infinite;">
-            <img src="./imagenes/Grupo_BMV.png" alt="BMV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/Logo_CNBV.png" alt="CNBV" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
-            <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" style="height: 2.5rem; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" />
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <img src="./imagenes/Grupo_BMV.png" alt="BMV" class="marquee-img" />
+                <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" class="marquee-img" />
+                <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" class="marquee-img" />
+                <img src="./imagenes/Logo_CNBV.png" alt="CNBV" class="marquee-img" />
+                <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" class="marquee-img" />
+                <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" class="marquee-img" />
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <img src="./imagenes/Grupo_BMV.png" alt="BMV" class="marquee-img" />
+                <img src="./imagenes/biva-logo.PNG.webp" alt="BIVA" class="marquee-img" />
+                <img src="./imagenes/342-3422693_logo-metlife.png" alt="MetLife" class="marquee-img" />
+                <img src="./imagenes/Logo_CNBV.png" alt="CNBV" class="marquee-img" />
+                <img src="./imagenes/SHCP_logo_2012.svg.png" alt="SHCP" class="marquee-img" />
+                <img src="./imagenes/ANUARIO2016-logo-CONDUSEF.png" alt="CONDUSEF" class="marquee-img" />
+            </div>
         </div>
     </div>
 </section>
 <style>
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
-@keyframes marquee2 {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
+  .marquee-container {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 25s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  .marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding: 0 2.5rem;
+    flex-shrink: 0;
+  }
+  .marquee-img {
+    height: 2.5rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .marquee-img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 </style>
 
 
